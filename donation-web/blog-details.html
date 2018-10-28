@@ -34,12 +34,38 @@
   <!-- Responsive Stylesheet File -->
   <link href="css/responsive.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: eBusiness
-    Theme URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+  <script>
+      window.onload = function() {
+      
+      var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+          text: "Total Budget is $50,000"
+        },
+        data: [{
+          type: "pie",
+          startAngle: 25,
+          toolTipContent: "<b>{label}</b>: {y}%",
+          showInLegend: "true",
+          legendText: "{label}",
+          indexLabelFontSize: 16,
+          indexLabel: "{label} - {y}%",
+          dataPoints: [
+            { y: 50, label: "Tutor Fees" },
+            { y: 20, label: "Facility" },
+            { y: 15, label: "Transportation" },
+            { y: 5, label: "Gifts" },
+            { y: 5, label: "Marketing" },
+            { y: 5, label: "Managment Fee" }
+          ]
+        }]
+      });
+      chart.render();
+      
+      }
+      </script>
 </head>
 
 <body data-spy="scroll" data-target="#navbar-example">
@@ -123,22 +149,6 @@
                   </div>
                   <div class="post-information">
 
-                    <!--div class="entry-meta">
-                      <span class="author-meta"><i class="fa fa-user"></i> <a href="#">admin</a></span>
-                      <span><i class="fa fa-clock-o"></i> march 28, 2016</span>
-                      <span class="tag-meta">
-                          <i class="fa fa-folder-o"></i>
-                          <a href="#">painting</a>,
-                          <a href="#">work</a>
-                        </span>
-                      <span>
-                          <i class="fa fa-tags"></i>
-                          <a href="#">tools</a>,
-                          <a href="#"> Humer</a>,
-                          <a href="#">House</a>
-                        </span>
-                      <span><i class="fa fa-comments-o"></i> <a href="#">6 comments</a></span>
-                    </div -->
                     <div class="entry-content">
                       <h3>About the project</h3>
                       <p>Aliquam et metus pharetra, bibendum massa nec, fermentum odio. Nunc id leo ultrices, mollis ligula in, finibus tortor. Mauris eu dui ut lectus fermentum eleifend. Pellentesque faucibus sem ante, non malesuada odio varius nec. Suspendisse
@@ -153,6 +163,8 @@
                       <h3>About the charity</h3>
                       <p>Aliquam et metus pharetra, bibendum massa nec, fermentum odio. Nunc id leo ultrices, mollis ligula in, finibus tortor. Mauris eu dui ut lectus fermentum eleifend. Pellentesque faucibus sem ante, non malesuada odio varius nec. Suspendisse
                           potenti. Proin consectetur aliquam odio nec fringilla. Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit amet ligula condimentum sagittis.</p>
+                      <h3>Budget Breakdown</h3>    
+                      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 
                     </div>
                   </div>
@@ -473,6 +485,7 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
